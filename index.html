@@ -85,6 +85,52 @@
   p  { margin-bottom: 1.25rem; }
   p:last-child { margin-bottom: 0; }
 
+  /* ── Hero banner (full-width background) ────────── */
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 320px;
+    background-image: url('https://images.unsplash.com/photo-1541721786041-b1d8a3d2ed6a?w=1200');
+    background-size: cover;
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-banner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+  }
+  .hero-banner h1 {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    font-size: 2.75rem;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .hero-banner h1 span {
+    display: block;
+    font-size: 1.1rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #e8dccc;
+    letter-spacing: 0.08em;
+    margin-top: 0.4rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 600px) {
+    .hero-banner { height: 45vh; min-height: 240px; }
+    .hero-banner h1 { font-size: 2rem; }
+  }
+
   /* ── Hero ────────────────────────────────────────── */
   .hero {
     padding: 2.5rem 0 1.5rem;
@@ -208,12 +254,12 @@
 </head>
 <body>
 
-<div class="page">
+<!-- ════════════ HERO BANNER ════════════ -->
+<section class="hero-banner">
+  <h1>The Mahogany Stick <span>Michael Sharpe — Walking Stick Maker, Honiton</span></h1>
+</section>
 
-  <!-- ════════════ HEADER ════════════ -->
-  <header>
-    <h1>The Mahogany Stick <span>Michael Sharpe — Walking Stick Maker, Honiton</span></h1>
-  </header>
+<div class="page">
 
   <!-- ════════════ HERO ═══════════════ -->
   <section class="hero">
