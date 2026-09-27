@@ -3,88 +3,291 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Mahogany Stick — Michael Sharpe, Walking Stick Maker</title>
+<title>The Mahogany Stick — Michael Sharpe, Walking Stick Maker, Honiton</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ── Reset & base ────────────────────────────────── */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
     background: #efe8db;
     color: #5c3a1e;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1.125rem;
     line-height: 1.75;
-    padding: 2rem 1rem;
+    -webkit-font-smoothing: antialiased;
   }
-  .container {
-    max-width: 650px;
+
+  /* ── Wrapper ─────────────────────────────────────── */
+  .page {
+    max-width: 48rem;
     margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
   }
+
+  /* ── Ornamental divider ──────────────────────────── */
+  .divider {
+    text-align: center;
+    color: #cbb89c;
+    font-size: 1.5rem;
+    letter-spacing: 1.5rem;
+    padding: 1rem 0 0.5rem;
+    user-select: none;
+  }
+  .divider--thick {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #cbb89c, transparent);
+    margin: 2.5rem 0;
+  }
+
+  /* ── Header ──────────────────────────────────────── */
   header {
-    padding: 3rem 0 2rem;
+    padding: 3rem 0 1.5rem;
+    text-align: center;
     border-bottom: 1px solid #cbb89c;
   }
+
   h1 {
-    font-size: 2rem;
+    font-size: 2.25rem;
     font-weight: normal;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.25rem;
+    letter-spacing: 0.03em;
+    color: #4a2e14;
   }
-  .subtitle {
+  h1 span {
+    display: block;
     font-size: 1rem;
+    font-style: italic;
+    font-weight: normal;
     color: #7a5c3a;
+    letter-spacing: 0.06em;
+    margin-top: 0.35rem;
+  }
+
+  /* ── Typography ──────────────────────────────────── */
+  h2 {
+    font-size: 1.35rem;
+    font-weight: normal;
+    letter-spacing: 0.04em;
+    color: #4a2e14;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #ddd0bc;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+    font-weight: normal;
+    font-style: italic;
+    color: #6e4f33;
+    margin-bottom: 0.5rem;
+  }
+
+  p  { margin-bottom: 1.25rem; }
+  p:last-child { margin-bottom: 0; }
+
+  /* ── Hero ────────────────────────────────────────── */
+  .hero {
+    padding: 2.5rem 0 1.5rem;
+  }
+  .hero p:first-of-type::first-letter {
+    font-size: 3rem;
+    float: left;
+    line-height: 1;
+    margin: 0.15rem 0.4rem 0 0;
+    color: #4a2e14;
+  }
+
+  /* ── Card / inset panel ──────────────────────────── */
+  .inset {
+    background: #e3d8c4;
+    border-left: 4px solid #c4a67a;
+    padding: 1.75rem 2rem;
+    margin: 2rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  .inset p { margin-bottom: 0.6rem; }
+  .inset p:last-child { margin-bottom: 0; }
+
+  /* ── Pricing table ────────────────────────────────── */
+  .pricing { margin: 2rem 0; }
+
+  .pricing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.6rem 0;
+    border-bottom: 1px dotted #d6c7b2;
+  }
+  .pricing-item:last-of-type { border-bottom: none; }
+
+  .pricing-item .label {
     font-style: italic;
   }
-  main p {
-    margin: 1.25rem 0;
+  .pricing-item .price {
+    font-size: 1.25rem;
+    color: #4a2e14;
+    white-space: nowrap;
   }
-  .details {
-    background: #e6dccb;
-    padding: 1.5rem;
+
+  .pricing-note {
+    font-size: 0.95rem;
+    font-style: italic;
+    color: #7a5c3a;
+    margin-top: 0.75rem;
+  }
+
+  /* ── Materials grid ──────────────────────────────── */
+  .materials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .material-card {
+    background: #e3d8c4;
+    border-radius: 4px;
+    padding: 1.25rem 1rem;
+    text-align: center;
+  }
+  .material-card h3 {
+    margin-bottom: 0.3rem;
+    font-style: normal;
+    font-size: 1.1rem;
+    color: #4a2e14;
+  }
+  .material-card .wood-desc {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #7a5c3a;
+    line-height: 1.5;
+  }
+
+  /* ── Where to buy / contact ──────────────────────── */
+  .contact-block {
+    background: #e3d8c4;
+    padding: 1.75rem 2rem;
     border-radius: 4px;
     margin: 2rem 0;
   }
-  .details strong {
-    display: inline-block;
-    min-width: 10ch;
+  .contact-block p { margin-bottom: 0.5rem; }
+  .contact-block p:last-child { margin-bottom: 0; }
+
+  .phone {
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+    color: #4a2e14;
   }
+
+  .address {
+    font-style: italic;
+    color: #6e4f33;
+  }
+
+  /* ── Footer ──────────────────────────────────────── */
   footer {
     margin-top: 3rem;
     padding-top: 1.5rem;
     border-top: 1px solid #cbb89c;
+    text-align: center;
     font-size: 0.875rem;
-    color: #7a5c3a;
     font-style: italic;
+    color: #8c6f53;
+  }
+
+  /* ── Responsive ──────────────────────────────────── */
+  @media (max-width: 600px) {
+    .page { padding: 1.25rem 1rem 2rem; }
+    h1 { font-size: 1.75rem; }
+    .materials { grid-template-columns: 1fr; gap: 1rem; }
+    .pricing-item { flex-direction: column; align-items: flex-start; gap: 0.15rem; }
+    .inset, .contact-block { padding: 1.25rem; }
   }
 </style>
 </head>
 <body>
-<div class="container">
 
-<header>
-  <h1>The Mahogany Stick.</h1>
-  <p class="subtitle">Walking sticks made in Honiton.</p>
-</header>
+<div class="page">
 
-<main>
-  <p>Michael Sharpe makes walking sticks. He worked as a carpenter for forty years; now he carves sticks from his garden workshop in Honiton, on the lane behind the old railway line.</p>
+  <!-- ════════════ HEADER ════════════ -->
+  <header>
+    <h1>The Mahogany Stick <span>Michael Sharpe — Walking Stick Maker, Honiton</span></h1>
+  </header>
 
-  <p>He uses local wood — hazel, ash, blackthorn — cut by hand, dried in the shed, peeled and shaped on a shavehorse he built himself. Every stick is different. Some are straight and clean, meant for a long day's walk on the South West Coast Path. Others keep a crook or a twist, the wood's own character left in. He also turns hiking staffs, a little heavier, with a brass ferrule and a leather wrist strap.</p>
+  <!-- ════════════ HERO ═══════════════ -->
+  <section class="hero">
+    <p>Michael Sharpe has been working wood his whole life. Forty years a carpenter, and now — for the last fifteen — he has spent his days in a garden workshop on the lane behind the old railway line in Honiton, making walking sticks the way they have always been made.</p>
+    <p>There is no machinery louder than a hand-plane. No glue. No shortcuts. Each stick begins as a branch, cut from a Devon hedge row, and ends — days or weeks later — as something someone will lean on for years. Michael calls it the best work he has ever done, and he means it.</p>
+  </section>
 
-  <p>If you want something particular — a handle carved to your hand, a wrap of stitched leather, a piece of antler from a local deer — he will do that too. It takes longer, but the work is worth it.</p>
+  <!-- ════════════ PRICING ════════════ -->
+  <h2>Sticks &amp; Staffs</h2>
 
-  <div class="details">
-    <p><strong>Standard sticks</strong> £25–£45</p>
-    <p><strong>Custom handles</strong> (leather, antler, carved) £50–£80</p>
+  <section class="pricing">
+    <div class="pricing-item">
+      <span class="label">Standard walking stick — straight, clean, ready to walk</span>
+      <span class="price">£25 – £45</span>
+    </div>
+    <div class="pricing-item">
+      <span class="label">Hiking staff — heavier, brass ferrule, leather wrist strap</span>
+      <span class="price">£35 – £50</span>
+    </div>
+    <div class="pricing-item">
+      <span class="label">Custom handle — leather wrap, antler, carved to your hand</span>
+      <span class="price">£50 – £80</span>
+    </div>
+    <p class="pricing-note">Every stick is one of a kind. Prices depend on the wood, the time, and the work in it. If you want something particular, just ask — Michael will tell you honestly what it will cost and how long it will take.</p>
+  </section>
+
+  <div class="divider">✦ ✦ ✦</div>
+
+  <!-- ════════════ MATERIALS ═══════════ -->
+  <h2>Materials We Use</h2>
+  <p>All wood is local — cut from hedgerows and coppices within a few miles of Honiton, dried in Michael's shed for at least a year, then worked by hand on a shavehorse he built himself.</p>
+
+  <div class="materials">
+    <div class="material-card">
+      <h3>Hazel</h3>
+      <p class="wood-desc">Light and springy, with a beautiful warm bark. Hazel makes the finest walking sticks — supple enough for a full day's ramble, strong enough for a lifetime.</p>
+    </div>
+    <div class="material-card">
+      <h3>Ash</h3>
+      <p class="wood-desc">Tough and straight-grained. Ash is Michael's choice for hiking staffs that take real weight. It ages to a pale silver if left unpeeled, or a rich honey if worked.</p>
+    </div>
+    <div class="material-card">
+      <h3>Blackthorn</h3>
+      <p class="wood-desc">Dense, heavy, and characterful. Blackthorn keeps its knots and twists — no two sticks alike. The bark is dark and craggy; under it lies wood the colour of old ivory.</p>
+    </div>
   </div>
 
-  <p>Michael sells at the Honiton craft fair, at the annual Christmas market, and from his home by appointment — or just knock on, because the gate is usually open. Fifteen years he has been at it now, and he still calls it the best work he has ever done.</p>
+  <div class="divider">✦ ✦ ✦</div>
 
-  <p>Call 01404 850432.</p>
-</main>
+  <!-- ════════════ WHERE TO BUY ════════ -->
+  <h2>Where to Buy</h2>
 
-<footer>
-  <p>The Mahogany Stick, Honiton, EX14.</p>
-</footer>
+  <div class="inset">
+    <p>Michael sells at the Honiton craft fair through the summer, and at the Christmas market on the High Street. Come and handle the sticks — he will talk you through each one, help you find the right height and weight, and if nothing is quite right he will make you one that is.</p>
+    <p>Outside of market days, you are welcome at his home workshop by appointment. The gate is usually open — knock on and see. If he is at the shavehorse, he will be glad of the company.</p>
+  </div>
 
-</div>
+  <!-- ════════════ CONTACT ════════════ -->
+  <h2>Contact</h2>
+
+  <div class="contact-block">
+    <p><strong>Michael Sharpe</strong></p>
+    <p class="phone">01404 850432</p>
+    <p class="address">The Mahogany Stick, Honiton, Devon, EX14</p>
+  </div>
+
+  <p style="font-size:0.95rem; font-style:italic; color:#7a5c3a;">If there is no answer, leave a message — Michael is likely out cutting wood or walking the lanes, and he will call you back.</p>
+
+  <!-- ════════════ FOOTER ════════════ -->
+  <footer>
+    <p>The Mahogany Stick &mdash; Honiton, Devon</p>
+  </footer>
+
+</div><!-- /.page -->
+
 </body>
 </html>
